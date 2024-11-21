@@ -10,7 +10,7 @@ const Dashboard = () => {
   const dispath = useDispatch();
 
   useEffect(() => {
-    const poems = await getPoems();
+    const poems = getPoems();
     dispath(setPoems(poems));
   }, []);
 
