@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import FormPoemContext from "../../contexts/formContext";
 
 interface PoemStepOneProps {
   onNext: () => void;
@@ -7,6 +8,8 @@ interface PoemStepOneProps {
 const PoemStepOne: React.FC<PoemStepOneProps> = ({ onNext }) => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const value = useContext(FormPoemContext);
+  console.log(value);
 
   const handleNext = () => {
     if (title && author) {

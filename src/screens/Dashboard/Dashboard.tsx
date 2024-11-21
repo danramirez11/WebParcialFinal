@@ -1,11 +1,20 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./dashboard.css";
 import { useNavigate } from "react-router-dom";
+import { getPoems } from "../../services/poetry";
+import { useEffect } from "react";
+import { setPoems } from "../../store/slices/poems";
 
 const Dashboard = () => {
-  const poems = useSelector((state) => state.poems);
-  console.log(poems);
   const navigate = useNavigate();
+  const dispath = useDispatch();
+
+  useEffect(() => {
+    const poems = await getPoems();
+    dispath(setPoems(poems));
+  }, []);
+
+  //yo la vdd me rendí hace mucho
 
   return (
     <div className="dashboard">

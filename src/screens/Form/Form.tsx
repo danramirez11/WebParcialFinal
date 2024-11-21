@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./form.css";
 
 import PoemStepOne from "../../components/PoemStepOne/PoemStepOne";
 import PoemStepTwo from "../../components/PoemStepTwo/PoemStepTwo";
 import PoemStepThree from "../../components/PoemStepThree/PoemStepThree";
+import FormPoemContext from "../../contexts/formContext";
 
 const Form: React.FC = () => {
   const [step, setStep] = useState(1);
+  const poemContext = useContext(FormPoemContext)
 
   const handleStep1Next = () => {
     setStep(2);

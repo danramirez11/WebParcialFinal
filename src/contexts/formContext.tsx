@@ -1,6 +1,6 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
-const formPoemContext = createContext({poem: {}})
+const formPoemContext = createContext({poem: {}, updatePoem: {}})
 
 import { ReactNode } from "react";
 
@@ -15,7 +15,7 @@ const FormPoemContext = ({children}: {children: ReactNode}) => {
     }
 
     return (
-        <formPoemContext.Provider value={{poem: {}, }}>
+        <formPoemContext.Provider value={{poem: formPoem, updatePoem: {updateFormPoem}}}>
         {children}
         </formPoemContext.Provider>
     )

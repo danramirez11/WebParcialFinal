@@ -1,6 +1,8 @@
+import { useDispatch } from "react-redux";
 import { Poem, PoemApi } from "../types/poems";
 
 export const getPoems = async () => {
+  
   try {
     const response = await fetch("https://poetrydb.org/poemcount/20");
   const data = await response.json();
@@ -17,6 +19,8 @@ export const getPoems = async () => {
   ))
 
   console.log(organizedData);
+
+
 
   return organizedData;
   } catch (error) {

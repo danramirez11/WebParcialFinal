@@ -33,6 +33,9 @@ export const poemsSlice = createSlice({
     name: 'poems',
     initialState,
     reducers: {
+        setPoems: (state, action: PayloadAction<Poem[]>) => {
+            state.poems = action.payload
+        },
         addPoem: (state, action: PayloadAction<Poem>) => {
             state.poems.push(action.payload);
         },
@@ -64,6 +67,6 @@ export const poemsSlice = createSlice({
       },
 });
 
-export const { addPoem, removePoem, updatePoem } = poemsSlice.actions;
+export const { addPoem, removePoem, updatePoem, setPoems } = poemsSlice.actions;
 
 export default poemsSlice.reducer;
