@@ -1,10 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import "./intro.css";
 
-interface IntroProps {
-  onNext: () => void;
-}
+const Intro = ( ) => {
+  const navigate = useNavigate();
 
-const Intro: React.FC<IntroProps> = ({ onNext }) => {
   return (
     <div className="intro">
       <h1 className="intro-title">Welcome to PoemWorld</h1>
@@ -12,7 +11,7 @@ const Intro: React.FC<IntroProps> = ({ onNext }) => {
         Discover, read, and share beautiful poems from around the world. Let
         your imagination flow like verses of poetry.
       </p>
-      <button className="intro-button" onClick={onNext}>
+      <button className="intro-button" onClick={() => navigate('/dashboard')}>
         Next
       </button>
     </div>

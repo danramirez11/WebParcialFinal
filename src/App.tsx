@@ -36,10 +36,10 @@ const examplePoem = {
 };
 
 function App() {
-  return <Form />;
+  //return <Form />;
   // return <Detail poem={examplePoem} onBack={() => {}} />;
   // return <Dashboard poems={poems} onViewPoem={() => {}} />;
-  // return <Intro onNext={() => {}} />;
+  //return <Intro onNext={() => {}} />;
 }
 
 export default App;

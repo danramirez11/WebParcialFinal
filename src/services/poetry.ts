@@ -1,22 +1,26 @@
-import { Poem } from "../types/poems";
+import { Poem, PoemApi } from "../types/poems";
 
-type ReturnGetPoems = any;
-export const getPoems = async (): ReturnGetPoems => {
-  return [
-    {
-      title: "Epitaph. Intended for Sir Isaac Newton, in Westminster Abbey.",
-      author: "Alexander Pope",
-      lines: [
-        "    ISAACUS NEWTONUS:",
-        "    QUEM IMMORTALEM",
-        "TESTANTUR TEMPUS, NATURA, COELUM:",
-        "      MORTALEM",
-        "    HOC MARMOR FATETUR.",
-        "",
-        "Nature and Nature's laws lay hid in night",
-        "God said, Let Newton be! and all was light.",
-      ],
-      linecount: "7",
-    },
-  ];
+export const getPoems = async () => {
+  try {
+    const response = await fetch("https://poetrydb.org/poemcount/20");
+  const data = await response.json();
+
+  console.log(data);
+  
+  const organizedData: Poem[] = data.map((poem: PoemApi) => ({
+    id: poem.title,
+    title: poem.title,
+    author: poem.author,
+    lines: poem.lines,
+    linecount: Number(poem.linecount),
+  }
+  ))
+
+  console.log(organizedData);
+
+  return organizedData;
+  } catch (error) {
+    console.error(error);
+    return error;
+  }
 };
