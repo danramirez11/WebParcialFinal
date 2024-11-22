@@ -1,5 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { poemsSlice } from "./slices/poems";
+import { poemsSlice, PoemsState } from "./slices/poems";
+
+export interface Store {
+    poems: PoemsState;
+}
 
 const store = configureStore({
     reducer: {

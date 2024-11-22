@@ -5,10 +5,12 @@ import PoemStepOne from "../../components/PoemStepOne/PoemStepOne";
 import PoemStepTwo from "../../components/PoemStepTwo/PoemStepTwo";
 import PoemStepThree from "../../components/PoemStepThree/PoemStepThree";
 import FormPoemContext from "../../contexts/formContext";
+import { useNavigate } from "react-router-dom";
 
 const Form: React.FC = () => {
   const [step, setStep] = useState(1);
   const poemContext = useContext(FormPoemContext)
+  const navigate = useNavigate();
 
   const handleStep1Next = () => {
     setStep(2);
@@ -19,7 +21,7 @@ const Form: React.FC = () => {
   };
 
   const handleStep3Finish = () => {
-    setStep(1);
+    navigate('/dashboard');
   };
 
   return (

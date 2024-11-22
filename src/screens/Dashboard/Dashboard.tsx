@@ -1,18 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./dashboard.css";
 import { useNavigate } from "react-router-dom";
-import { getPoems } from "../../services/poetry";
-import { useEffect } from "react";
-import { setPoems } from "../../store/slices/poems";
+import { Poem } from "../../types/poems";
+import { Store } from "../../store/store";
 
 const Dashboard = () => {
   const navigate = useNavigate();
-  const dispath = useDispatch();
+  const poems: Poem[] = useSelector((state: Store) => state.poems.poems);
 
-  useEffect(() => {
-    const poems = getPoems();
-    dispath(setPoems(poems));
-  }, []);
+  
 
   //yo la vdd me rendí hace mucho
 
@@ -20,15 +16,15 @@ const Dashboard = () => {
     <div className="dashboard">
       <h1 className="dashboard-title">Poem Dashboard</h1>
       <div className="poem-list">
-        {/*poems.map((poem) => (
+        {poems.map((poem) => (
           <div key={poem.id} className="poem-card">
             <h2 className="poem-title">{poem.title}</h2>
-            <p className="poem-excerpt">{poem.excerpt}...</p>
-            <button className="poem-button" onClick={() => onViewPoem(poem.id)}>
+            <p className="poem-excerpt">{poem.lines[0]}...</p>
+            <button className="poem-button" onClick={() => navigate('/detail', {state: {poem: poem}})}>
               Read More
             </button>
           </div>
-        ))*/}
+        ))}
       </div>
       <button onClick={() => navigate('/form')}>Create Poem</button>
     </div>

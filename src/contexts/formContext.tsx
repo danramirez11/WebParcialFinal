@@ -7,7 +7,7 @@ import { ReactNode } from "react";
 const FormPoemContext = ({children}: {children: ReactNode}) => {
     const [formPoem, setFormPoem] = useState({})
 
-    const updateFormPoem = (id, value) => {
+    const updateFormPoem = (id: string, value: string) => {
         setFormPoem((prev) => ({
             ...prev,
             [id]: value,

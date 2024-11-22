@@ -9,7 +9,7 @@ import Form from "../screens/Form/Form";
 const router = createBrowserRouter([
     { path: "/", element: <Intro /> },
     { path: "/dashboard", element: <Dashboard /> },
-    { path: "/detail", element: <Detail poem={{}} onBack={() => {}} /> },
+    { path: "/detail", element: <Detail /> },
     { path: "/form", element: <Form /> },
 ])
 

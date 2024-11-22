@@ -1,4 +1,3 @@
-import { useDispatch } from "react-redux";
 import { Poem, PoemApi } from "../types/poems";
 
 export const getPoems = async () => {
@@ -17,10 +16,6 @@ export const getPoems = async () => {
     linecount: Number(poem.linecount),
   }
   ))
-
-  console.log(organizedData);
-
-
 
   return organizedData;
   } catch (error) {
