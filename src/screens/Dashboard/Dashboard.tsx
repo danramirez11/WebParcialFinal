@@ -3,12 +3,12 @@ import "./dashboard.css";
 import { useNavigate } from "react-router-dom";
 import { Poem } from "../../types/poems";
 import { Store } from "../../store/store";
+import usePoems from "../../hooks/usePoems";
 
 const Dashboard = () => {
   const navigate = useNavigate();
+  const poemss = usePoems();
   const poems: Poem[] = useSelector((state: Store) => state.poems.poems);
-
-  
 
   //yo la vdd me rendí hace mucho
 

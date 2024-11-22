@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { Poem } from '../../types/poems';
 import { getPoems } from '../../services/poetry';
 
-export interface PoemsState {
+interface PoemsState {
     loading: boolean;
     error: string | null;
     poems: Poem[];

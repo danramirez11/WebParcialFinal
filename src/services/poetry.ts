@@ -17,6 +17,8 @@ export const getPoems = async () => {
   }
   ))
 
+  console.log(organizedData);
+
   return organizedData;
   } catch (error) {
     console.error(error);
